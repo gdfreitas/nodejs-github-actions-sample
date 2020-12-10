@@ -1,4 +1,4 @@
-name: Publish Workflow
+name: Release Workflow
 
 on:
   release:
