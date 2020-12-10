@@ -1,0 +1,28 @@
+{
+  "name": "@gdfreitasdev/nodejs-github-actions-sample",
+  "version": "0.0.1",
+  "description": "Node.js sample for installing, building, testing and publishing libraries",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --minify --sourcemap --format=cjs --outfile=dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdfreitas/nodejs-github-actions-sample.git"
+  },
+  "keywords": [
+    "nodejs", "github", "actions", "sample"
+  ],
+  "author": "Gabriel De Freitas <gdfreitasdev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdfreitas/nodejs-github-actions-sample/issues"
+  },
+  "homepage": "https://github.com/gdfreitas/nodejs-github-actions-sample#readme",
+  "devDependencies": {
+    "esbuild": "^0.8.17"
+  }
+}
