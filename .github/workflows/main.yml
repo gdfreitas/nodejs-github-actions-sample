@@ -1,0 +1,35 @@
+name: Main Workflow
+
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+
+jobs:
+  build:
+    # Runner VMs, ubuntu, macos, windows
+    # Docs: https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#github-hosted-runners
+    runs-on: ubuntu-latest
+
+    # This strategy allow multiple Node.js versions to run on
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Test
+        run: npm test --if-present
